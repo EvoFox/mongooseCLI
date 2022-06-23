@@ -17,9 +17,13 @@ exports.listFilm = async () => {
 	}
 };
 
-exports.updateFilm = async (criteria, filmObj) => {
+exports.updateFilm = async (criteria, updates) => {
 	try {
-		await Film.updateOne(criteria, filmObj);
+		// Example parameters:
+		// criteria: { title: "Testing Title" }
+		// updates: { title: "New Testing Title", actor: "John Doe", rating: 5 }
+
+		await Film.updateOne(criteria, updates);
 	} catch (error) {
 		console.log(error);
 	}
@@ -27,6 +31,8 @@ exports.updateFilm = async (criteria, filmObj) => {
 
 exports.deleteFilm = async (criteria) => {
 	try {
+		// Example parameters:
+		// criteria: { title: "Testing Title" }
 		await Film.deleteOne(criteria);
 	} catch (error) {
 		console.log(error);

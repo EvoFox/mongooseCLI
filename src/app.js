@@ -12,6 +12,7 @@ const {
 const app = async (yargsObj) => {
 	try {
 		if (yargsObj.add) {
+			// pass to create function
 			await addFilm({
 				title: yargsObj.title,
 				actor: yargsObj.actor,
@@ -19,6 +20,7 @@ const app = async (yargsObj) => {
 			});
 			console.log(await listFilm());
 		} else if (yargsObj.list) {
+			// Pass to read function
 			console.log(await listFilm());
 		} else if (yargsObj.update) {
 			// Build Criteria
@@ -36,11 +38,13 @@ const app = async (yargsObj) => {
 				Object.assign(update, { rating: yargsObj.rating });
 			}
 
+			// Pass to update function
 			await updateFilm(criteria, update);
 		} else if (yargsObj.delete) {
 			//Build Criteria
 			const criteria = { title: yargsObj.delete };
 
+			// Pass to delete function
 			await deleteFilm(criteria);
 		} else {
 			// list the available options
