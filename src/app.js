@@ -29,15 +29,16 @@ const app = async (yargsObj) => {
 			// Build update fields
 			let update = {};
 			if (yargsObj.title) {
-				Object.assign(update, { title: yargsObj.title });
+				update = { ...update, title: yargsObj.title };
 			}
 			if (yargsObj.actor) {
-				Object.assign(update, { actor: yargsObj.actor });
+				update = { ...update, actor: yargsObj.actor };
 			}
 			if (yargsObj.rating) {
-				Object.assign(update, { rating: yargsObj.rating });
+				update = { ...update, rating: yargsObj.rating };
 			}
 
+			console.log(update);
 			// Pass to update function
 			await updateFilm(criteria, update);
 		} else if (yargsObj.delete) {
