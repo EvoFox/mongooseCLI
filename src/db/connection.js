@@ -9,7 +9,4 @@ const connection = async () => {
 	} catch (error) {}
 };
 
-if (process.env.DEBUG == "true") {
-	connection();
-}
-module.export = connection;
+connection();
